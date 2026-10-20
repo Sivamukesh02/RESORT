@@ -1,0 +1,917 @@
+/* ===== Azure Bay Resort - style.css ===== */
+
+/* Smooth scroll when nav link click panna */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Vite default style reset */
+body {
+  margin: 0;
+  display: block;
+}
+
+/* Whole page */
+.resort-page {
+  background: #05060f;
+  color: #ffffff;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+.resort-page * {
+  box-sizing: border-box;
+}
+
+.resort-page a {
+  text-decoration: none;
+}
+
+/* ===== Navbar ===== */
+.resort-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 6%;
+  /* light see-through bar */
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(0px);
+}
+
+.resort-logo {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.resort-nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.resort-nav-links a {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.resort-nav-links a:hover {
+  color: #6ff2e4;
+}
+
+/* ===== Video (hero and footer both use) ===== */
+.resort-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== Hero ===== */
+.resort-hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* Dark on the left, so text easy-a padikkalaam */
+.resort-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1));
+}
+
+.resort-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  padding: 0 6%;
+}
+
+.resort-hero-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 80px;
+  font-weight: 500;
+  line-height: 1.09;
+  margin: 0 0 24px 0;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.resort-hero-text {
+  font-size: 19px;
+  line-height: 1.7;
+  color: #f1f1f1;
+  margin: 0 0 36px 0;
+}
+
+.resort-hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.resort-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.resort-btn-fill {
+  background: #6ff2e4;
+  color: #05060f;
+}
+
+.resort-btn-fill:hover {
+  background: #ffffff;
+}
+
+.resort-btn-line {
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.resort-btn-line:hover {
+  background: #ffffff;
+  color: #05060f;
+}
+
+/* ===== Bottle + Images + Table (white) ===== */
+.resort-journey {
+  position: relative;
+  background: #ffffff;
+  color: #0b2a3b;
+}
+
+/* Bottle - GSAP idha keezha kondu varum.
+   Height-a maathina bottle size maarum */
+.resort-bottle {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 5;
+  display: block;
+  height: 260px;
+  width: auto;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Content bottle ku keezha varum part */
+.resort-fall-zone {
+  position: relative;
+  padding: 100px 6% 0 6%;
+}
+
+/* Bottle center, content left and right */
+.resort-bottle-intro {
+  display: grid;
+  grid-template-columns: 1fr 240px 1fr;
+  align-items: center;
+  height: 260px;
+  margin-bottom: 100px;
+}
+
+/* Small content blocks (left and right) */
+.resort-side-text {
+  max-width: 380px;
+}
+
+.resort-side-left {
+  justify-self: end;
+  text-align: right;
+}
+
+.resort-side-right {
+  justify-self: start;
+  text-align: left;
+}
+
+.resort-side-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 30px;
+  margin: 0 0 10px 0;
+}
+
+.resort-side-left .resort-side-title {
+  color: #e63f8c;
+}
+
+.resort-side-right .resort-side-title {
+  color: #0a8fb5;
+}
+
+.resort-side-text p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #4a5b68;
+  margin: 0;
+}
+
+/* Image rows - center la gap irukkum, bottle adhula varum */
+.resort-row {
+  display: grid;
+  grid-template-columns: 1fr 240px 1fr;
+  align-items: center;
+  padding: 60px 0;
+}
+
+.resort-row-image {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(11, 42, 59, 0.2);
+}
+
+.resort-row-text {
+  grid-column: 3;
+  grid-row: 1;
+  max-width: 420px;
+  padding-left: 20px;
+  border-left: 4px solid #0a8fb5;
+}
+
+/* Reverse row - image right, content left */
+.resort-row-reverse .resort-row-image {
+  grid-column: 3;
+}
+
+.resort-row-reverse .resort-row-text {
+  grid-column: 1;
+  justify-self: end;
+  text-align: right;
+  padding-left: 0;
+  padding-right: 20px;
+  border-left: none;
+  border-right: 4px solid #e63f8c;
+}
+
+.resort-row-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 32px;
+  color: #0b2a3b;
+  margin: 0 0 12px 0;
+}
+
+.resort-row-text p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #4a5b68;
+  margin: 0;
+}
+
+/* Table area - bottle idhula land aagum */
+.resort-table-area {
+  display: grid;
+  grid-template-columns: 1fr 420px 1fr;
+  column-gap: 40px;
+  align-items: center;
+  padding: 0 6% 100px 6%;
+}
+
+/* Table image. Bottle idhukku mela vandhu nikkum */
+.resort-table-img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+}
+
+/* ===== Booking area (white) ===== */
+.resort-booking {
+  padding: 40px 6% 60px 6%;
+  background: #ffffff;
+}
+
+/* Soft pink + blue card */
+.resort-booking-card {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  text-align: center;
+  background: linear-gradient(135deg, #e6f7fa, #fdeaf3);
+  border: 1px solid #d5e9ef;
+  border-radius: 24px;
+  box-shadow: 0 16px 40px rgba(11, 42, 59, 0.12);
+}
+
+.resort-booking-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 44px;
+  font-weight: 700;
+  color: #0b2a3b;
+  margin: 0 0 14px 0;
+}
+
+.resort-booking-text {
+  max-width: 560px;
+  margin: 0 auto 36px auto;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #4a5b68;
+}
+
+/* 3 small facts */
+.resort-booking-facts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.resort-booking-fact {
+  min-width: 170px;
+  padding: 16px 24px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(11, 42, 59, 0.08);
+}
+
+.resort-booking-fact strong {
+  display: block;
+  font-size: 16px;
+  color: #0b2a3b;
+  margin-bottom: 4px;
+}
+
+.resort-booking-fact span {
+  font-size: 14px;
+  color: #7a8a96;
+}
+
+/* Book Now button */
+.resort-book-btn {
+  padding: 16px 48px;
+  background: #0a8fb5;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(10, 143, 181, 0.35);
+}
+
+.resort-book-btn:hover {
+  background: #e63f8c;
+  box-shadow: 0 10px 24px rgba(230, 63, 140, 0.35);
+}
+
+/* ===== Booking form popup ===== */
+/* Dark layer - full screen */
+.resort-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(5, 6, 15, 0.65);
+}
+
+/* White form box */
+.resort-modal {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 40px;
+  background: #ffffff;
+  color: #0b2a3b;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.resort-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  line-height: 1;
+  color: #7a8a96;
+  cursor: pointer;
+}
+
+.resort-modal-close:hover {
+  color: #e63f8c;
+}
+
+.resort-modal-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 32px;
+  color: #0b2a3b;
+  margin: 0 0 8px 0;
+}
+
+.resort-modal-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4a5b68;
+  margin: 0 0 24px 0;
+}
+
+/* Form - 2 columns */
+.resort-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.resort-field-full {
+  grid-column: 1 / -1;
+}
+
+.resort-field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0b2a3b;
+  margin-bottom: 6px;
+}
+
+.resort-field input,
+.resort-field select,
+.resort-field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 15px;
+  color: #0b2a3b;
+  background: #ffffff;
+  border: 1px solid #cfd8de;
+  border-radius: 10px;
+}
+
+.resort-field input:focus,
+.resort-field select:focus,
+.resort-field textarea:focus {
+  outline: none;
+  border-color: #0a8fb5;
+}
+
+.resort-submit-btn {
+  grid-column: 1 / -1;
+  padding: 14px;
+  background: #0a8fb5;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.resort-submit-btn:hover {
+  background: #e63f8c;
+}
+
+/* Thank you message */
+.resort-success {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.resort-success .resort-modal-text {
+  margin-bottom: 28px;
+}
+
+/* ===== About + Rooms (white) ===== */
+.resort-rooms-section {
+  padding: 100px 6%;
+  background: #ffffff;
+}
+
+.resort-intro {
+  max-width: 700px;
+  margin: 0 auto 80px auto;
+  text-align: center;
+  scroll-margin-top: 90px;
+}
+
+.resort-section-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #0b2a3b;
+  margin: 0 0 16px 0;
+}
+
+.resort-section-text {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #4a5b68;
+  margin: 0;
+}
+
+.resort-room-list {
+  scroll-margin-top: 90px;
+}
+
+/* Room card */
+.resort-room {
+  width: 58%;
+  padding: 36px;
+  margin-bottom: 60px;
+  border-radius: 18px;
+  background: #ffffff;
+}
+
+/* Left card - pink */
+.resort-room-left {
+  margin-right: auto;
+  border: 2px solid #e63f8c;
+  box-shadow: 0 12px 30px rgba(230, 63, 140, 0.25);
+}
+
+.resort-room-left .resort-room-name {
+  color: #e63f8c;
+}
+
+/* Right card - blue */
+.resort-room-right {
+  margin-left: auto;
+  border: 2px solid #0a8fb5;
+  box-shadow: 0 12px 30px rgba(10, 143, 181, 0.25);
+}
+
+.resort-room-right .resort-room-name {
+  color: #0a8fb5;
+}
+
+.resort-room-name {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 34px;
+  margin: 0 0 12px 0;
+}
+
+.resort-room-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #4a5b68;
+  margin: 0 0 20px 0;
+}
+
+.resort-room-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  margin: 0 0 28px 0;
+  padding: 0;
+}
+
+.resort-room-details li {
+  padding: 6px 16px;
+  border: 1px solid #d5dde3;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #2b3d4a;
+}
+
+.resort-room-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.resort-room-price {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0b2a3b;
+}
+
+.resort-room-price span {
+  font-size: 14px;
+  font-weight: 400;
+  color: #7a8a96;
+}
+
+.resort-room-link {
+  color: #0b2a3b;
+  font-weight: 600;
+  border-bottom: 2px solid #0b2a3b;
+}
+
+/* ===== Footer ===== */
+.resort-footer {
+  position: relative;
+  min-height: 110vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  scroll-margin-top: 0;
+}
+
+/* Top la video theriyum, keezha konjam dark */
+.resort-footer-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 40, 60, 0.3), rgba(0, 25, 40, 0.85));
+}
+
+.resort-footer-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 100px 6% 40px 6%;
+  text-align: center;
+}
+
+.resort-footer-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 68px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 28px 0;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.resort-slogan {
+  margin-bottom: 60px;
+}
+
+.resort-slogan p {
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1.6;
+  color: #ffd9a0;
+  margin: 0;
+}
+
+/* Glass panel */
+.resort-footer-panel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto 40px auto;
+  padding: 40px;
+  text-align: left;
+  border-radius: 20px;
+  backdrop-filter: blur(1px);
+}
+
+.resort-footer-col {
+  flex: 1;
+  min-width: 220px;
+}
+
+.resort-footer-col h3 {
+  font-size: 20px;
+  color: #6ff2e4;
+  margin: 0 0 18px 0;
+}
+
+.resort-footer-col a {
+  display: block;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.resort-footer-col a:hover {
+  color: #ffd9a0;
+}
+
+.resort-footer-col p {
+  color: #f1f1f1;
+  line-height: 1.6;
+  margin: 0 0 10px 0;
+}
+
+/* The 2 points */
+.resort-point {
+  margin-bottom: 16px;
+}
+
+.resort-point strong {
+  display: block;
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.resort-point span {
+  color: #e6e6e6;
+  font-size: 15px;
+}
+
+/* Social icons */
+.resort-social {
+  display: flex;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.resort-page .resort-social-icon {
+  width: 46px;
+  height: 46px;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  color: #ffffff;
+}
+
+.resort-social-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Instagram hover - pink orange */
+.resort-page .resort-insta:hover {
+  background: linear-gradient(45deg, #f9a03f, #e1306c, #833ab4);
+  border-color: transparent;
+  color: #ffffff;
+}
+
+/* WhatsApp hover - green */
+.resort-page .resort-whatsapp:hover {
+  background: #25d366;
+  border-color: transparent;
+  color: #ffffff;
+}
+
+.resort-copy {
+  font-size: 14px;
+  color: #d4e4e8;
+  margin: 0;
+}
+
+/* ===== Tablet and mobile ===== */
+@media (max-width: 900px) {
+  .resort-hero-title {
+    font-size: 58px;
+  }
+
+  .resort-gap {
+    display: none;
+  }
+
+  .resort-bottle-intro,
+  .resort-row,
+  .resort-table-area {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    height: auto;
+  }
+
+  .resort-bottle-intro {
+    margin-bottom: 40px;
+  }
+
+  .resort-side-left,
+  .resort-side-right {
+    justify-self: center;
+    text-align: center;
+  }
+
+  .resort-row {
+    padding: 30px 0;
+  }
+
+  .resort-row-image,
+  .resort-row-reverse .resort-row-image {
+    grid-column: 1;
+    grid-row: auto;
+    height: 240px;
+  }
+
+  .resort-row-text,
+  .resort-row-reverse .resort-row-text {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: start;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 0;
+    border-left: 4px solid #0a8fb5;
+    border-right: none;
+  }
+
+  .resort-row-reverse .resort-row-text {
+    border-left: 4px solid #e63f8c;
+  }
+
+  .resort-table-center {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .resort-booking-title {
+    font-size: 34px;
+  }
+
+  .resort-room {
+    width: 100%;
+  }
+
+  .resort-footer-title {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 600px) {
+  .resort-nav {
+    padding: 14px 4%;
+  }
+
+  .resort-logo {
+    font-size: 20px;
+  }
+
+  .resort-nav-links {
+    gap: 14px;
+  }
+
+  .resort-nav-links a {
+    font-size: 13px;
+  }
+
+  .resort-hero-title {
+    font-size: 42px;
+  }
+
+  .resort-hero-text {
+    font-size: 16px;
+  }
+
+  .resort-section-title {
+    font-size: 34px;
+  }
+
+  .resort-row-title {
+    font-size: 26px;
+  }
+
+  .resort-booking-card {
+    padding: 40px 20px;
+  }
+
+  .resort-booking-title {
+    font-size: 28px;
+  }
+
+  .resort-modal {
+    padding: 28px 20px;
+  }
+
+  /* Phone la form 1 column */
+  .resort-form {
+    grid-template-columns: 1fr;
+  }
+
+  .resort-room {
+    padding: 24px;
+  }
+
+  .resort-footer-title {
+    font-size: 36px;
+  }
+
+  .resort-slogan p {
+    font-size: 19px;
+  }
+
+  .resort-footer-panel {
+    padding: 24px;
+  }
+}
